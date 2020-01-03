@@ -28,7 +28,20 @@
 
 
 @section('content2')
-
+  <table>
+    <tr>
+      <th>Person</th>
+      <th>Message</th>
+    </tr>
+    @foreach($items as $b)
+      <tr>
+        <td>{{$b->getData()}}</td>
+        <td>@if($b->board != null)
+              {{$b->board->getData()}}
+            @endif</td>
+      </tr>
+    @endforeach
+  </table>
 @endsection
 
 @section('content3')
