@@ -54,10 +54,24 @@
   </table>
 @endsection
 
-@section('content3')
-
-
-@endsection
+{{--@section('content3')
+  <table>
+    <tr>
+      <th>Peron</th>
+      <th>Message</th>
+    </tr>
+    @foreach($items as $c)
+      <tr>
+        <td>{{$c->getData}}</td>
+        <td>
+          @if($c->boardone != null)
+            {{$c->boardone->getData()}}
+          @endif
+        </td>
+      </tr>
+    @endforeach
+  </table>
+@endsection--}}
 
 @section('content4')
 
