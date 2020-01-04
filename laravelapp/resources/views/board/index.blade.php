@@ -26,6 +26,7 @@
 
 
 @section('content2')
+<h2>投稿フォーム</h2>
 <table>
   <form class="" action="/board/add" method="post">
     {{csrf_field()}}
