@@ -9,11 +9,12 @@
 @section('content')
     <table>
       <tr>
-        <th>Data</th>
+        <th>Message</th>
+        <th>Name</th>
       </tr>
       @foreach($items as $a)
         <tr>
-          <td>{{$a->getData()}}</td>
+          <td>{{$a->getData2()}}</td>
         </tr>
       @endforeach
    </table>
