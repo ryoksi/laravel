@@ -74,7 +74,38 @@
 @endsection--}}
 
 @section('content4')
-
+<h2>掲示板に投稿した人とメッセージ</h2>
+ <table>
+   <tr>
+     <th>Person</th>
+     <th>Message</th>
+   </tr>
+   @foreach($hasItems as $hasitem)
+     <tr>
+       <td>{{$hasitem->getData()}}</td>
+       <td>
+         <table>
+           @foreach($hasitem->board as $obj)
+             <tr>
+               <td>{{$obj->getData()}}</td>
+             </tr>
+           @endforeach
+         </table>
+     </td>
+   </tr>
+   @endforeach
+ </table>
+ <h3>まだ投稿していない人</h3>
+  <table>
+    <tr>
+      <th>Person</th>
+    </tr>
+    @foreach($noItems as $noitem)
+      <tr>
+        <td>{{$noitem->getData()}}</td>
+      </tr>
+    @endforeach
+  </table>
 @endsection
 
 @section('content5')

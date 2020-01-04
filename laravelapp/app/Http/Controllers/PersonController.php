@@ -7,9 +7,17 @@ use App\Person;
 
 class PersonController extends Controller
 {
-    public function index(Request $request){
+    /*public function index(Request $request){
       $items=Person::all();
       return view('person.index',['items'=>$items]);
+    }*/
+
+    public function index(Request $request) {
+      $items=Person::all();
+      $hasItems=Person::has('board')->get();
+      $noItems=Person::doesntHave('board')->get();
+      $param=['hasItems'=>$hasItems, 'noItems'=>$noItems];
+      return view('person.index',$param,['items'=>$items]);
     }
 
     public function find(Request $request) {
