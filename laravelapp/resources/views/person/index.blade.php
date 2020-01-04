@@ -28,6 +28,8 @@
 
 
 @section('content2')
+ <h2>hasMany使った掲示板</h2>
+ <p>投稿した人のメッセすべて表示される</p>
   <table>
     <tr>
       <th>Person</th>
@@ -36,10 +38,18 @@
     @foreach($items as $b)
       <tr>
         <td>{{$b->getData()}}</td>
-        <td>@if($b->board != null)
-              {{$b->board->getData()}}
-            @endif</td>
-      </tr>
+        <td>
+        @if($b->board != null)
+          <table>
+            @foreach($b->board as $obj)
+              <tr>
+                <td>{{$obj->getData()}}</td>
+              </tr>
+            @endforeach
+          </table>
+        @endif
+      </td>
+    </tr>
     @endforeach
   </table>
 @endsection
