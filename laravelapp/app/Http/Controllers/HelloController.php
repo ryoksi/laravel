@@ -204,4 +204,8 @@ return redirect('/hello')->withErrors($validator)->withInput();
 }
 return view('hello.middleindex',['msg'=>'正しく入力されました！！']);*/
   }
+
+  public function rest(Request $request) {
+    return view('hello.rest');
+  }
 }
