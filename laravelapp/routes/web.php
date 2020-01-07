@@ -34,6 +34,9 @@ Route::get('hello/del','HelloController@del');
 Route::post('hello/del','HelloController@remove');
 Route::get('hello/show','HelloController@show');
 Route::get('hello/rest','HelloController@rest');
+//session
+Route::get('hello/session','HelloController@ses_get');
+Route::post('hello/session','HelloController@ses_put');
 //ここからパーソン
 Route::get('person','PersonController@index');
 Route::get('person/find','PersonController@find');
