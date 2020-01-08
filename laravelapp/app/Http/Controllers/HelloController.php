@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use App\Http\Requests\HelloRequest;
 use Validator;
 use Illuminate\Support\Facades\DB;
+use App\Person;
 
 
 class HelloController extends Controller
@@ -82,8 +83,13 @@ class HelloController extends Controller
 
 
   public function index(Request $request) {
-    $items=DB::table('people')->get();
-    return view('hello.dbindex',['items'=>$items]);
+    $sort=$request->sort;
+    //$items=Person::orderBy($sort,'asc')->simplePaginate(2);
+    $items=Person::orderBy($sort,'asc')->paginate(2);
+    $param=['items'=>$items,'sort'=>$sort];
+    return view('hello.index',$param);
+    /*$items=DB::table('people')->get();
+    return view('hello.dbindex',['items'=>$items]);*/
     /*if (isset($request->id)) {
       $param=['id'=>$request->id];
       $items=Db::select('select * from people where id=:id',$param);
